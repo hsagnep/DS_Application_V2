@@ -17,10 +17,6 @@ def linear_programming():
 def quiz():
     return render_template('quiz_template.html')
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
 
 
 if __name__ == "__main__":
