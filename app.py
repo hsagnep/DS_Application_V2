@@ -13,8 +13,11 @@ def operations_management():
 def linear_programming():
     return render_template('linear_programming.html')
 
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz_template.html')
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
