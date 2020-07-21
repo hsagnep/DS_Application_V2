@@ -3,36 +3,28 @@ app = Flask(__name__)
 
 content = [
     {
-        'Header' : 'Decision Theory',
-        'Paragraph' : ['Blah blach','waka taka'],
+        'Header' : 'Test 1',
+        'Paragraph' : ['Test Paragraph'],
         'List_Items' : []
     },
 {
-        'Header' : 'Linear Programming',
-        'Paragraph' : ['Waka Waka'],
-        'List_Items' : [{'Title' : 'Oppa Gangnam Style',
-                        'li' : ['Waluigi','Mario']},]
-    },
-{
-        'Header' : 'Linear Programming Assumptions',
-        'Paragraph' : ['Linearity: the impact of decision variables is linear in both constraints and objective function.','Divisibility: non-integer values of decision variables are acceptable.','Certainty: values of parameters are known and constant. (within the scope of the problem)','Non-negativity: negative values of decision variables are not allowed'],
-        'List_Items' : []
-    },
-{
-        'Header' : 'Steps of Linear Programming',
-        'Paragraph' : [],
-        'List_Items' : [{'Title' : '',
-                        'li' : ['Model Formulation','Solving the LP','Studying the Results: Output Reports and Sensitivity Analysis']},]
+        'Header' : 'Header',
+        'Paragraph' : ['Paragraph'],
+        'List_Items' : [{'Title' : 'List Title',
+                        'li' : ['List Item','List Item']},]
     },
 ]
 
 key_terms = [{
-    'Term' : 'Linear Programming',
+    'Term' : 'Forecasting',
     'Definition' : 'Techniques consist of a sequence of steps that will lead to an optimal solution to problems, in cases where a solution exists, given restrictions or limitations.'
 },
-{'Term' : 'Objective Function',
+{'Term' : 'Mean Average Deviation',
 'Definition' : 'Test!'
-}
+},
+{'Term' : 'Mean Average Deviation',
+'Definition' : 'Test!'
+},
 ]
 
 
@@ -60,6 +52,9 @@ def quiz():
 def test_grounds():
     return render_template('lesson_base.html', all_content=content, terms = key_terms)
 
+@app.route('/forecasting')
+def forecasting():
+    return render_template('forecasting.html', all_content=content, terms = key_terms)
 
 
 if __name__ == "__main__":

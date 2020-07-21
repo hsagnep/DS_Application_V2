@@ -42,28 +42,10 @@
                 <div class="col-md-8 blog-main">
                     <div class="blog-post">
                         <br>
-                        <h2 class="blog-post-title">Linear Programming</h2>
-
-                        <p>Linear programming is a method to achieve the best outcome in a mathematical model whose
-                            requirements
-                            are
-                            represented by linear relationships. Linear programming is a special case of mathematical
-                            programming.</p>
+                        <h2 class="blog-post-title">{% block title %}  {% endblock %}</h2>
+                        <p>{% block def %} {% endblock %}</p>
                         <hr>
-                        <p>Examples of situations Linear Programming can be used in:</p>
-                        <ul>
-                            <li>Resource Allocation: <p class='font-italic'>“Given we have a limited supply of X, how
-                                    do we divvy it to realize the most profit?”</p>
-                            </li>
-                            <li>Logistics: <p class='font-italic'>“How do we deliver our contracted amounts while
-                                    keeping our distribution costs as low as possible?”</p>
-                            </li>
-                            </li>
-                            <li>Investment Planning: <p class='font-italic'>“How do we select our portfolio to
-                                    maximize returns while keeping risk to an acceptable level?”</p>
-                            </li>
-                            </li>
-                        </ul>
+                        {% block example %} {% endblock %}
                         <hr>
                         {% for content in all_content %}
                         <h3 id="{{content.Header}}">{{content.Header}}</h3>
@@ -72,16 +54,17 @@
                         {% endfor%}
                         {% for item in content.List_Items %}
                         <p>{{item.Title}}</p>
-                        {% for re in item.li %}
+                        {% for li in item.li %}
                         <ul>
-                            <li>{{re}}</li>
+                            <li>{{li}}</li>
                         </ul>
                         {% endfor%}
                         {% endfor%}
                         <hr>
                         {% endfor%}
+                        {% block try %}
                         <h3>Example</h3>
-                        <h4>Product Mix Example</h4>
+                        {% endblock %}
 
 
                     </div><!-- /.blog-post -->
@@ -108,8 +91,9 @@
                     <div class="p-3">
                         <h4 class="font-italic">Sections</h4>
                         <ol class="list-unstyled mb-0">
-                            <li><a href="#linear_programming_assumptions">Linear Programming Assumptions</a></li>
-                            <li><a href="#steps_of_linear_programming">Steps of Linear Programming</a></li>
+                            {% for content in all_content %}
+                            <li><a href="#{{content.Header}}">{{content.Header}}</a></li>
+                            {% endfor%}
                         </ol>
                     </div>
                 </aside><!-- /.blog-sidebar -->
