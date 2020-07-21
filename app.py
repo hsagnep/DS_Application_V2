@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,Markup
 app = Flask(__name__)
 
 content = [
@@ -11,7 +11,9 @@ content = [
         'Header' : 'Header',
         'Paragraph' : ['Paragraph'],
         'List_Items' : [{'Title' : 'List Title',
-                        'li' : ['List Item','List Item']},]
+                        'li' : ['List Item','List Item']},],
+        'Formula' : [{'Formulae' : Markup('<p class="text-center">Q<sub>BEP</sub>=FC/(p-v)</p>'),
+                    'Formulae_Vars' : ['Q = Quantity', 'FC = Fixed Cost', 'p = Price','v = Variable']}]
     },
 ]
 
