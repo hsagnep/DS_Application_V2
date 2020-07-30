@@ -1,34 +1,7 @@
 from flask import Flask, render_template,Markup
 app = Flask(__name__)
-
-content = [
-    {
-        'Header' : 'Test 1',
-        'Paragraph' : ['Test Paragraph'],
-        'List_Items' : []
-    },
-{
-        'Header' : 'Header',
-        'Paragraph' : ['Paragraph'],
-        'List_Items' : [{'Title' : 'List Title',
-                        'li' : ['List Item','List Item']},],
-        'Formula' : [{'Formulae' : Markup('<p class="text-center">Q<sub>BEP</sub>=FC/(p-v)</p>'),
-                    'Formulae_Vars' : ['Q = Quantity', 'FC = Fixed Cost', 'p = Price','v = Variable']}]
-    },
-]
-
-key_terms = [{
-    'Term' : 'Forecasting',
-    'Definition' : 'Techniques consist of a sequence of steps that will lead to an optimal solution to problems, in cases where a solution exists, given restrictions or limitations.'
-},
-{'Term' : 'Mean Average Deviation',
-'Definition' : 'Test!'
-},
-{'Term' : 'Mean Average Deviation',
-'Definition' : 'Test!'
-},
-]
-
+app._static_folder = '/Users/hervinsagnep/Desktop/DS_Application/static'
+import test_db
 
 @app.route('/')
 def home():
@@ -52,12 +25,15 @@ def quiz():
 
 @app.route('/test_grounds')
 def test_grounds():
-    return render_template('lesson_base.html', all_content=content, terms = key_terms)
+    return render_template('lesson_base.html', all_content=test_db.content, terms = test_db.key_terms)
 
 @app.route('/forecasting')
 def forecasting():
-    return render_template('forecasting.html', all_content=content, terms = key_terms)
+    return render_template('forecasting.html', all_content=test_db.FC_Content, terms = test_db.FC_Key_Terms)
 
+@app.route('/inventory_management')
+def inventory_management():
+    return render_template('inventory_management.html', all_content=test_db.IM_Content, terms = test_db.IM_Key_Terms)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)

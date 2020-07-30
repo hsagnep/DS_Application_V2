@@ -52,6 +52,9 @@
                         {% for p in content.Paragraph %}
                         <p>{{p}}</p>
                         {% endfor%}
+                        {% for img in content.Images %}
+                        <img src="{{url_for('static', filename=img)}}" />
+                        {% endfor%}
                         {% for item in content.List_Items %}
                         <p>{{item.Title}}</p>
                         {% for li in item.li %}
